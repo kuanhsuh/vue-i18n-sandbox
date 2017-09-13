@@ -3,10 +3,17 @@
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <h2>{{ $t("message.hello") }}</h2>
+    <h3>without Vuex</h3>
     <button @click="switchLang('cn')">cn</button>
     <button @click="switchLang('tw')">tw</button>
     <button @click="switchLang('es')">es</button>
     <button @click="switchLang('en')">en</button>
+    <br />
+    <h3>with Vuex</h3>
+    <button @click="setLang('cn')">cn</button>
+    <button @click="setLang('tw')">tw</button>
+    <button @click="setLang('es')">es</button>
+    <button @click="setLang('en')">en</button>
   </div>
 </template>
 
@@ -15,23 +22,16 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Vue+Vuex+Vuei18n'
     }
   },
   methods: {
-    toggleLang: function(){
-      const currentLang = vue.$i18n.locale
-      if(currentLang == 'cn') {
-        vue.$i18n.locale = 'en'
-      } else {
-        vue.$i18n.locale = 'cn'
-      }
-    },
     switchLang: function(lang){
-      console.log(lang)
-      vue.$i18n.locale = lang
+      this.$i18n.locale = lang
+    },
+    setLang: function(lang){
+      this.$store.dispatch('setLang', lang)
     }
-
   }
 }
 </script>
