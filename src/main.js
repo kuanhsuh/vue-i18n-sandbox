@@ -12,5 +12,5 @@ export const app = new Vue({
   render: h => h(App)
 })
 
-// window['vue'] = app
-// window.store = store
+window['vue'] = app
+window.store = store
