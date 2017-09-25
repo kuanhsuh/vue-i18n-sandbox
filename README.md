@@ -19,3 +19,5 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 Vue.config.lang = store.state.lang
 vue.$i18n.locale 
+
+https://kazupon.github.io/vue-i18n/
