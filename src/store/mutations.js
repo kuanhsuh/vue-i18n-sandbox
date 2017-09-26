@@ -65,7 +65,9 @@ export const actions = {
       commit(types.SET_LANG, payload)
     } else {
       try {
-        const res = await axios.get(`./src/lang/${payload}.json`)
+        // const res = await axios.get(`./src/lang/${payload}.json`)
+        // const res = await axios.get(`../../src/lang/${payload}.json`)
+        const res = await import(`./src/lang/locale/${payload}.json`)
         app.$i18n.setLocaleMessage(payload, res.data)
         commit(types.SET_LANG, payload)
       }
